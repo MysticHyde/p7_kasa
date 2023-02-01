@@ -15,7 +15,7 @@ function Home() {
       if (!isFetchLoading) {
         let itemList = [];
         Object.keys(fetchData).map((index) =>
-          itemList.push(<Card cardId={fetchData[index].id} cardTitle={fetchData[index].title} cardCover={fetchData[index].cover} />)
+          itemList.push(<Card key={'card_' + fetchData[index].id} cardId={fetchData[index].id} cardTitle={fetchData[index].title} cardCover={fetchData[index].cover} />)
         );
         console.log(itemList);
         setGalleryProducts(itemList);
@@ -23,7 +23,7 @@ function Home() {
       } else {
         let itemList = [];
         for (let index = 0; index < 6; index++) {
-          itemList.push(<EmptyCard cardId={index} />);
+          itemList.push(<EmptyCard key={'empty_card_' + index} cardId={index} />);
         }
         setGalleryProducts(itemList);
       }

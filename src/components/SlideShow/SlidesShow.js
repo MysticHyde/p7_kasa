@@ -7,9 +7,9 @@ function SlideShow({ pictures }) {
 
     function updateIndex(newIndex) {
         if (newIndex < 0) {
-            newIndex = 0;
-        } else if (newIndex >= pictures.length) {
             newIndex = pictures.length - 1;
+        } else if (newIndex >= pictures.length) {
+            newIndex = 0;
         }
         setActiveIndex(newIndex);
     }
@@ -34,7 +34,7 @@ function SlideShow({ pictures }) {
                 })}
             </div>
 
-            <div className="slideshow_buttons">
+            <div className="slideshow_buttons" style={pictures.length === 1 ? { display: 'none' } : { display: 'block' }}>
                 <button
                     onClick={() => { updateIndex(activeIndex - 1); }}>
                     <Arrow />

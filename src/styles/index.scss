@@ -7,6 +7,10 @@
     }
 }
 
+body {
+    margin: 0;
+}
+
 header,
 main {
     padding: 0 21px;
@@ -102,6 +106,7 @@ main {
         border-radius: 10px;
         overflow: hidden;
         margin-bottom: 20px;
+        background-size: cover;
 
         &:hover {
             cursor: pointer;
@@ -178,10 +183,6 @@ main {
             height: 223px;
         }
 
-        &--md {
-            height: 255px;
-        }
-
         span {
             font-family: Montserrat;
             font-size: 24px;
@@ -191,8 +192,6 @@ main {
             max-width: 70%;
             z-index: 1;
         }
-
-
     }
 
 
@@ -456,13 +455,12 @@ footer {
         width: 100%;
         flex-direction: column;
 
-        .content span {
-            background-color: #ff60607f;
+        span {
+            background-color: rgba(255, 255, 255, 0.5);
             border-radius: 10px;
-            width: 50%;
+            width: 30%;
             height: 18px;
         }
-
     }
 
     @media screen and (min-width: 800px) {
@@ -477,14 +475,6 @@ footer {
                 height: 26px;
                 width: 16px;
             }
-        }
-
-        .content {
-            font-size: 24px;
-            line-height: 34px;
-            padding-top: 40px;
-            padding-bottom: 40px;
-            border-radius: 10px;
         }
     }
 }
@@ -501,7 +491,26 @@ footer {
 
     .content {
         white-space: nowrap;
-        transition: transform 0.5s ease;
+        transition: transform 0.3s ease;
+    }
+
+    .slideshow-item {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        height: 255px;
+        background-color: #fff;
+        padding: 0 20px 0 20px;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+    }
+
+    &--empty {
+        .content {
+            height: 255px;
+            background-color: $grey;
+        }
     }
 
     .slideshow_buttons {
@@ -548,17 +557,7 @@ footer {
         }
     }
 
-    .slideshow-item {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        height: 255px;
-        background-color: #fff;
-        padding: 0 20px 0 20px;
-        background-repeat: no-repeat;
-        background-size: cover;
-        background-position: center;
-    }
+
 
     @media screen and (min-width: 800px) {
         margin-bottom: 24px;
@@ -578,13 +577,20 @@ footer {
             }
         }
 
+        &--empty {
+            .content {
+                height: 415px;
+                background-color: $grey;
+            }
+        }
+
     }
 }
 
 .user_infos {
     display: flex;
     align-items: center;
-    justify-content: end;
+    justify-content: flex-end;
 
     .name {
         font-family: Montserrat;
@@ -602,6 +608,23 @@ footer {
         width: 32px;
         border-radius: 50%;
         margin-left: 10px;
+        background-position: center;
+        background-size: cover;
+    }
+
+    &--empty {
+        .name {
+            display: block;
+            height: 18px;
+            background-color: #FF6060;
+            border-radius: 10px;
+            min-width: 50px;
+            max-width: 150px;
+        }
+
+        .picture {
+            background-color: $grey;
+        }
     }
 
     @media screen and (min-width: 800px) {
@@ -640,6 +663,18 @@ footer {
         font-size: 10px;
         font-weight: 500;
         letter-spacing: 0em;
+    }
+
+    &--empty {
+        span {
+            &::before {
+                content: '';
+                background-color: rgba(255, 255, 255, 0.5);
+                border-radius: 10px;
+                width: 100%;
+                height: 10px;
+            }
+        }
     }
 
     @media screen and (min-width: 800px) {
@@ -691,18 +726,30 @@ footer {
             "rate rate user";
         grid-auto-rows: auto;
 
-        &--title h1 {
-            font-family: Montserrat;
-            font-size: 18px;
-            font-weight: 500;
-            line-height: 26px;
-            letter-spacing: 0em;
-            text-align: left;
-            color: $rose;
-            grid-area: title;
+        &--title {
+            h1 {
+                font-family: Montserrat;
+                font-size: 18px;
+                font-weight: 500;
+                line-height: 26px;
+                letter-spacing: 0em;
+                text-align: left;
+                color: $rose;
+                grid-area: title;
+            }
 
+            span.empty {
+                display: block;
+                height: 18px;
+                background-color: $rose;
+                border-radius: 10px;
+                min-width: 100px;
+                max-width: 300px;
+                margin: 5px 0
+            }
 
         }
+
 
         &--location {
             font-family: Montserrat;
@@ -712,6 +759,15 @@ footer {
             letter-spacing: 0em;
             color: $rose;
             grid-area: location;
+
+            span.empty {
+                display: block;
+                height: 18px;
+                background-color: $rose;
+                border-radius: 10px;
+                min-width: 50px;
+                max-width: 150px;
+            }
         }
 
         &--tags {
@@ -744,7 +800,7 @@ footer {
                 h1 {
                     font-size: 36px;
                     margin: 0;
-
+                    line-height: 35px;
                 }
             }
 

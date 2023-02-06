@@ -7,7 +7,7 @@ import './styles/index.scss';
 
 export default function App() {
   const outlet = useOutlet();
-
+  console.log('outlet', outlet);
   return (
     <>
       <Header />

@@ -17,7 +17,6 @@ function Home() {
         Object.keys(fetchData).map((index) =>
           itemList.push(<Card key={'card_' + fetchData[index].id} cardId={fetchData[index].id} cardTitle={fetchData[index].title} cardCover={fetchData[index].cover} />)
         );
-        console.log(itemList);
         setGalleryProducts(itemList);
 
       } else {

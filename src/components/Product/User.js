@@ -13,7 +13,7 @@ function User(props) {
 
 function EmptyUser() {
   return (
-    <div className="user_info user_info--empty">
+    <div className="user_infos user_infos--empty">
       <div className="name"></div>
       <div className="picture"></div>
     </div>

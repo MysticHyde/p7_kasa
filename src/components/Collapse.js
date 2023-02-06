@@ -4,9 +4,6 @@ import { ReactComponent as Arrow } from "../images/arrow.svg";
 function Collapse({ title, children }) {
   const [isOpen, setOpen] = useState(false);
 
-  console.log('type:', typeof children);
-  console.log(children);
-
   return (
     <div className="collapse">
       <div
@@ -24,34 +21,25 @@ function Collapse({ title, children }) {
         className={`content ${!isOpen ? 'close' : ''}`}
       >
         {typeof children == 'string' ?
-          children : <ul>{Object.keys(children).map(i => <li>{children[i]}</li>)}</ul>}
+          children
+          :
+          <ul>{Object.keys(children).map(i => <li key={`list_on_collapse${children[i]}`}>{children[i]}</li>)}</ul>}
       </div>
     </div>
   );
 }
 
 function EmptyCollapse() {
-  const [isOpen, setOpen] = useState(false);
+
 
   return (
     <div className="collapse collapse--empty">
       <div
-        className="title"
-        onClick={() => {
-          setOpen(!isOpen);
-        }}>
+        className="title">
         <span></span>
         <button className="active">
           <Arrow />
         </button>
-      </div>
-      <div
-        className={`content open`}
-
-      >
-        <span></span>
-        <span></span>
-        <span></span>
       </div>
     </div>
   );

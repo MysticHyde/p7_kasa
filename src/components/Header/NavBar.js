@@ -12,7 +12,7 @@ function NavBar() {
                 : isPending
                   ? "pending"
                   : ""
-            }>Acceuil</NavLink>
+            }>Accueil</NavLink>
         </li>
         <li>
           <NavLink to={`about`}

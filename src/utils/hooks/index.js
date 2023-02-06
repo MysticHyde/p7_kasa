@@ -18,6 +18,7 @@ export function useFetch(url) {
 
         const data = await response.json();
 
+        console.log('fetchData : ', data);
         setFetchData(data);
       } catch (err) {
         console.log(err);

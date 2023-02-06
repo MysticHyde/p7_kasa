@@ -1,7 +1,6 @@
 import React from 'react';
 
 function SlideShowItem({ picture, width }) {
-    console.log(picture);
     return (
         <div
             className="slideshow-item"

@@ -6,7 +6,7 @@ import { Collapse, EmptyCollapse } from "../components/Collapse";
 import { Tags, EmptyTags } from "../components/Tags";
 import { EmptyUser, User } from "../components/Product/User";
 import { json } from "react-router-dom";
-import SlideShow from "../components/SlideShow/SlidesShow";
+import { SlideShow, EmptySlideShow } from "../components/SlideShow/SlidesShow";
 
 function Product() {
   const param = useParams("id");
@@ -14,20 +14,15 @@ function Product() {
   const { fetchData, isFetchLoading, fetchError } = useFetch(`../data.json`);
 
   const [productRating, setProductRating] = useState(<EmptyRating />);
-  const [productTitle, setProductTitle] = useState(
-    <span className="empty"></span>
-  );
-  const [productLocation, setProductLocation] = useState(
-    <span className="empty"></span>
-  );
+  const [productTitle, setProductTitle] = useState(<span className='empty'></span>);
+  const [productLocation, setProductLocation] = useState(<span className="empty"></span>);
   const [productTags, setProductTags] = useState(<EmptyTags />);
-
   const [productDescription, setProductDescription] = useState(
     <EmptyCollapse />
   );
   const [productEquipment, setProductEquipment] = useState(<EmptyCollapse />);
   const [productUser, setProductUser] = useState(<EmptyUser />);
-  const [slideSHow, setSlideShow] = useState(<>RIEN</>);
+  const [slideSHow, setSlideShow] = useState(<EmptySlideShow />);
 
   useEffect(() => {
     if (!fetchError) {
@@ -45,7 +40,6 @@ function Product() {
           );
           setProductTags(<Tags list={data.tags} />);
           setProductUser(<User host={data.host} />);
-          console.log('pic', data.pictures);
           setSlideShow(<SlideShow pictures={data.pictures} />);
 
         } else {
@@ -54,8 +48,6 @@ function Product() {
             { status: 404, statusText: "Logement introuvable" }
           );
         }
-      } else {
-        console.log("loading");
       }
     } else {
       throw json(
@@ -63,6 +55,7 @@ function Product() {
         { status: 404, statusText: "Base de données introuvable" }
       );
     }
+    // eslint-disable-next-line
   }, [fetchData]);
 
   return (

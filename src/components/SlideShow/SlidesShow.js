@@ -21,7 +21,7 @@ function SlideShow({ pictures }) {
 
             <div className="content"
                 style={{
-                    transform: `translate(-${activeIndex * 100}%)`
+                    transform: `translateX(-${activeIndex * 100}%)`
                 }}>
                 {Object.keys(pictures).map((index) => {
                     return (
@@ -49,6 +49,15 @@ function SlideShow({ pictures }) {
             </div>
         </div>
     );
+
+}
+function EmptySlideShow() {
+    return (
+        <div className="slideshow slideshow--empty">
+            <div className="content">
+            </div>
+        </div>
+    );
 }
 
-export default SlideShow;
+export { SlideShow, EmptySlideShow };

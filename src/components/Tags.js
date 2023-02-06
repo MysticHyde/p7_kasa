@@ -2,7 +2,7 @@ function Tags(props) {
   const listItems = props.list.map((el) => (
     <span
       key={"product_tag" + el}
-      style={{ backgroundImage: `url(${el.cover})` }}
+    // style={{ backgroundImage: `url(${el.cover})` }}
     >
       {el}
     </span>

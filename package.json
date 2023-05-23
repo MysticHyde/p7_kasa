@@ -1,5 +1,6 @@
 {
   "name": "kasa",
+  "homepage": "https://mystichyde.github.io/p7_kasa/build",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
